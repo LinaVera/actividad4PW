@@ -3,26 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Tablas y graficos</title>
+    <title>Graficador Ventas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie-edge">
     <script src="js/datos.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <link   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-    crossorigin="anonymous"
-  />
-  <script
-    type="text/javascript"
-    src="https://www.gstatic.com/charts/loader.js"
-  ></script>
+
+
 </head>
 
 <body>
@@ -38,73 +33,76 @@
                     <div class="form-group">
                         <label for="periodo">Inserte año:</label>
                         <input type="number" class="form-control" name="año" id="año"
-                            placeholder="Ingrese el año a analizar">
+                            placeholder="Ingrese el año a analizar" required>
                     </div>
                     <div class="form-group">
                         <label for="periodo">Inserte periodo de análisis:</label>
                         <input type="number" class="form-control" name="periodo" id="periodo"
                             placeholder="Trimestre, bimestre, cuatrimestre, semestral o mensual">
                     </div>
-                    <div>
-                        <table class="table table-striped table-hover table-bordered" id="tableMouths">
+                
+                    <div>                  
+                        <table class="table table-striped table-hover table-bordered" id="tableMouths">   
                             <tr>
                                 <th>Mes</th>
                                 <th>Valor</th>
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td><input type="number" id="venta" name="venta"></td>
+                                <td><input type="number" id="venta" name="venta" required></td>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td><input type="number" id="venta" name="venta"></td>
+                                <td><input type="number" id="venta" name="venta" required></td>
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td><input type="number" id="venta" name="venta"></td>
+                                <td><input type="number" id="venta" name="venta" required></td>
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td><input type="number" id="venta" name="venta"></td>
+                                <td><input type="number" id="venta" name="venta" required></td>
                             </tr>
                             <tr>
                                 <td>5</td>
-                                <td><input type="number" id="venta" name="venta"></td>
+                                <td><input type="number" id="venta" name="venta" required></td>
                             </tr>
                             <tr>
                                 <td>6</td>
-                                <td><input type="number" id="venta" name="venta"></td>
+                                <td><input type="number" id="venta" name="venta" required></td>
                             </tr>
                             <tr>
                                 <td>7</td>
-                                <td><input type="number" id="venta" name="venta"></td>
+                                <td><input type="number" id="venta" name="venta" required ></td>
                             </tr>
                             <tr>
                                 <td>8</td>
-                                <td><input type="number" id="venta" name="venta"></td>
+                                <td><input type="number" id="venta" name="venta" required></td>
                             </tr>
                             <tr>
                                 <td>9</td>
-                                <td><input type="number" id="venta" name="venta"></td>
+                                <td><input type="number" id="venta" name="venta" required></td>
                             </tr>
                             <tr>
                                 <td>10</td>
-                                <td><input type="number" id="venta" name="venta"></td>
+                                <td><input type="number" id="venta" name="venta" required></td>
                             </tr>
                             <tr>
                                 <td>11</td>
-                                <td><input type="number" id="venta" name="venta"></td>
+                                <td><input type="number" id="venta" name="venta" required></td>
                             </tr>
                             <tr>
                                 <td>12</td>
-                                <td><input type="number" id="venta" name="venta"></td>
+                                <td><input type="number" id="venta" name="venta" required></td>
                             </tr>
+                         
                         </table>
                     </div>
                     <div class="form-group">
-                        <a href="#tablaA"><button type="button" class="btn btn-primary" onclick="createTable()">Crear tabla</button></a>
+                        <a href="#tablaA" type="submit"><button onclick="createTable()" class="btn btn-primary">Crear tabla</button></a>
                         
                     </div>
+               
                 </div>
             </div>
         </div>
@@ -113,10 +111,7 @@
             <div class="col-12 col-md-6 mt-3" id="graficoA">
                 <div class="p-3 rounded border shadow-lg">
                     <h2>Gráfico de barra</h2>  
-                    <p id="imp2"></p>  
-                    <div id="piechart_3d" ></div>
-
-                    <div id="table_div"></div>
+                    <div id="grafica" ></div>
                 </div>
             </div>
             <div class="col-12 col-md-6 mt-3" id="tablaA">
@@ -133,8 +128,7 @@
 
     </div>
 
-
-
+<!--Boostrap-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
@@ -145,47 +139,15 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
+<!--BarChart-->
+    <script type="text/javascript">
 
-<script type="text/javascript">
-  
-  
-  google.charts.load('current', {packages: ["corechart"]});
-
-  google.charts.load("current", { packages: ["bar"] });
-      google.charts.load("current", { packages: ["table"] });
-/*
-
-      function drawChart(a, v) {
-        var data = new google.visualization.DataTable();
-        alert("Se va a crear un gráfico con " + a.length + " Items");
-        data.addColumn("string", "Name");
-        data.addColumn("number", "Ventas");
-        data.addRows(a.length);
-        for (i = 0; i < a.length; i++) {
-          data.setCell(i, 0, a[i].value);
-          data.setCell(i, 1, v[i].value);
-        }
-        var options = {
-        title: 'Análisis de ventas',
-        chartArea: {width: '25%'},
-        hAxis: {
-          title: 'Ventas',
-          minValue: 0
-        },
-        vAxis: {
-          title: 'Meses'
-        }
-      };
-        var chart = new google.visualization.BarChart(document.getElementById('piechart_3d'));
-        chart.draw(data, options);
-      }*/
+        google.charts.load('current', {packages: ["corechart"]});
+        google.charts.load("current", { packages: ["bar"] });
+        google.charts.load("current", { packages: ["table"] });
 
     </script>
 
- 
-    <!--Mis JS-->
-   
-    
 </body>
 
 </html>

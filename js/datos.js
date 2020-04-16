@@ -1,10 +1,10 @@
 /*Lina Vanessa Vera Pulido - 1151998 - 14/04/2020 */
-
+var mesesT=[],ventaT=[];
 
 function vPeriod(lim) {
   return lim == 5 || lim > 6 || lim < 1;
 }
-var meses=[],venta=[];
+
 function period(lim) {
   var p = "";
   if (lim == 1) {
@@ -42,12 +42,17 @@ function nPeriods(lim) {
 }
 
 function ventas(){
-    var ventas= document.getElementsByName("venta");
+    var ventasA= document.getElementsByName("venta");
     var g=[];
-    for(i=0; i<ventas.length; i++)
+    for(i=0; i<ventasA.length; i++)
     {
-        g[i]= parseInt(ventas[i].value,10)  ;
+      if(ventasA[i].value.length===0){
+        console.log("Es vacio");
+        g[i]= 0;
+      }else{
+        g[i]= parseFloat(ventasA[i].value) ;
     }
+  }
    return g;
 }
 
@@ -57,11 +62,11 @@ function createTable() {
   var graf= document.getElementById("tableFuntion");
   var suma=0, j=0;
   var t ="";
- // var meses=[], venta=[];
 
   if (vPeriod(lim)) {
     alert("Periodo no valido");
   } 
+
   else {
       var p= period(lim);
       var f =  ventas();
@@ -70,51 +75,37 @@ function createTable() {
     t += "<tr> <th>" + p + "</th>";
     t += "<th>Valor</th></tr>";
     var pww=1;
-    meses=[np-1], venta=[np-1];
+    mesesT=[np-1], ventaT=[np-1];
       for(i=0; i< f.length; i++){
           suma = suma + f[i];
           j++;
           if(lim==j){
             j=0;
             t += "<tr>";
-            t += "<td id='mess' name='mess'>" + pww+ "</td>";
-            t += "<td id='ventaA' name='ventaA'>"+ suma +"</td>";
+            t += "<td >" + pww+ "</td>";
+            t += "<td >"+ suma +"</td>";
             t += "</tr>";
-            meses[pww-1]=pww.toString();
-            venta[pww-1]=suma.toString();
-           
+            mesesT[pww-1]=pww.toString();
+            ventaT[pww-1]=suma.toString();
             pww++;
             suma=0;
-          }   
-          
+          }      
       }
      
-      console.log(meses);
-      console.log(venta);
+      console.log(mesesT);
+      console.log(ventaT);
   
       t+="</table>";
-    //  t+="<a href='#graficoA'><button type='button' class='btn btn-primary' onclick='crearGrafico()'>Crear grafico</button></a>";
       graf.innerHTML=t; 
-      drawChart(meses,venta);
+      drawChart(mesesT,ventaT);
     }
-    
 }
-
 
 function draw() { 
     drawChart(57);
     google.charts.setOnLoadCallback(drawChart);
 }
 
-/*
-function draw_chart(mesesA, ventaA)
-{
-    drawChart(mesesA, ventaA);
-    //drawTable(meses, venta);
-    google.charts.setOnLoadCallback(drawChart);
-  //  google.charts.setOnLoadCallback(drawTable);
-    
-}*/
 function drawChart(a, v) {
   var data = new google.visualization.DataTable();
   alert("Se va a crear un gráfico con " + a.length + " Items");
@@ -136,8 +127,6 @@ function drawChart(a, v) {
     title: 'Meses'
   }
 };
-  var chart = new google.visualization.BarChart(document.getElementById('piechart_3d'));
+  var chart = new google.visualization.BarChart(document.getElementById('grafica'));
   chart.draw(data, options);
 }
-
-
