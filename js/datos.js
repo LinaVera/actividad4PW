@@ -111,15 +111,18 @@ function createTable() {
      
       console.log(mesesT);
       console.log(ventaT);
-  
+    
       t+="</table>";
+      
       graf.innerHTML=t; 
       drawChart(mesesT,ventaT);
+     // drawTable(mesesT,ventaT,p);
+      
     }
 }
 //**************google chart*********************** */
 function draw() { 
-    drawChart(57);
+    drawChart(37);
     google.charts.setOnLoadCallback(drawChart);
 }
 
@@ -147,3 +150,23 @@ function drawChart(a, v) {
   var chart = new google.visualization.BarChart(document.getElementById('grafica'));
   chart.draw(data, options);
 }
+/*
+function drawTable(a, v,p) {
+  var data = new google.visualization.DataTable();
+
+  
+  data.addColumn("string");
+  data.addColumn("number");
+  data.addRows(a.length);
+  for (i = 0; i < a.length; i++) {
+    data.setCell(i, 0, a[i]);
+    data.setCell(i, 1, v[i]);
+  }
+  var table = new google.visualization.Table(
+    document.getElementById("tableFuntion")
+  );
+
+  table.draw(data, {
+    showRowNumber: false,
+  });
+}*/
