@@ -40,6 +40,23 @@ function nPeriods(lim) {
   }
   return np;
 }
+//Formulario de ventas
+function createTableM(){
+  var ta= document.getElementById("tableMouths");
+  var t="";
+  t = "<table class='table table-striped table-hover table-bordered'> <tr> <th>Mes</th> ";
+  t += "<th>Valor de la venta en COP</th> </tr>";
+  for(i=1; i<= 12; i++){
+    t += "<tr>";
+    t += "<td >"+i+"</td>";
+    t += "<td ><input type='number' name='venta'></td>";
+    t += "</tr>";
+
+  }
+  t+="</table>";
+  t+="<a href='#graficoT'></a><button onclick='createTable()' class='btn btn-primary'>Crear tabla</button></a> ";
+  ta.innerHTML=t;
+}
 
 function ventas(){
     var ventasA= document.getElementsByName("venta");
@@ -55,7 +72,7 @@ function ventas(){
   }
    return g;
 }
-
+//Tabla de análisis de las ventas
 function createTable() {
   var lim = document.getElementById("periodo").value;
   var año =  document.getElementById("año").value;
@@ -63,8 +80,8 @@ function createTable() {
   var suma=0, j=0;
   var t ="";
 
-  if (vPeriod(lim)) {
-    alert("Periodo no valido");
+  if (vPeriod(lim)|| año.length !=4) {
+    alert("Periodo o año no valido");
   } 
 
   else {
@@ -100,7 +117,7 @@ function createTable() {
       drawChart(mesesT,ventaT);
     }
 }
-
+//**************google chart*********************** */
 function draw() { 
     drawChart(57);
     google.charts.setOnLoadCallback(drawChart);
